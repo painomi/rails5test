@@ -1,3 +1,8 @@
 // Place all the styles related to the boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.board {
+	background-image: image-url("grid.png");
+	height: 484px;
+	width: 484px;
+}

@@ -1,6 +1,9 @@
-%h1 Board
-%div{id: 'messages'}
-  = render @messages
-%form
-  %label Say something:
-  %input{type: 'text', 'data-behavior':'board_speaker'}
+%div.board
+  %div{id: 'chits'}
+    = render @chits
+
+%div.chat
+  %div{id: 'messages'}
+    = render @messages
+  %form
+    %input{type: 'text', 'data-behavior':'board_speaker'}
