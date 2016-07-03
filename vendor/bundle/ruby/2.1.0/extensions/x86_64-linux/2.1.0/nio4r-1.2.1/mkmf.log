@@ -1,0 +1,183 @@
+have_header: checking for unistd.h... -------------------- yes
+
+"gcc -o conftest -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC conftest.c  -L. -L/usr/lib/x86_64-linux-gnu -L. -Wl,-Bsymbolic-functions -Wl,-z,relro -L/build/ruby2.1-pKVrxO/ruby2.1-2.1.8/debian/lib -fstack-protector -rdynamic -Wl,-export-dynamic     -lruby-2.1  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -E -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <unistd.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_blocking_region()... -------------------- yes
+
+"gcc -o conftest -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC conftest.c  -L. -L/usr/lib/x86_64-linux-gnu -L. -Wl,-Bsymbolic-functions -Wl,-z,relro -L/build/ruby2.1-pKVrxO/ruby2.1-2.1.8/debian/lib -fstack-protector -rdynamic -Wl,-export-dynamic     -lruby-2.1  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:13:1: warning: ‘rb_thread_blocking_region’ is deprecated [-Wdeprecated-declarations]
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+ ^
+In file included from /usr/include/ruby-2.1.0/ruby/ruby.h:24:0,
+                 from /usr/include/ruby-2.1.0/ruby.h:33,
+                 from conftest.c:1:
+/usr/include/ruby-2.1.0/ruby/intern.h:870:18: note: declared here
+ DEPRECATED(VALUE rb_thread_blocking_region(rb_blocking_function_t *func, void *data1,
+                  ^
+/usr/include/x86_64-linux-gnu/ruby-2.1.0/ruby/config.h:121:52: note: in definition of macro ‘DEPRECATED’
+ #define DEPRECATED(x) __attribute__ ((deprecated)) x
+                                                    ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_call_without_gvl()... -------------------- yes
+
+"gcc -o conftest -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC conftest.c  -L. -L/usr/lib/x86_64-linux-gnu -L. -Wl,-Bsymbolic-functions -Wl,-z,relro -L/build/ruby2.1-pKVrxO/ruby2.1-2.1.8/debian/lib -fstack-protector -rdynamic -Wl,-export-dynamic     -lruby-2.1  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:13:57: error: ‘rb_thread_call_without_gvl’ undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_call_without_gvl; return 0; }
+                                                         ^
+conftest.c:13:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_call_without_gvl; return 0; }
+/* end */
+
+"gcc -o conftest -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC conftest.c  -L. -L/usr/lib/x86_64-linux-gnu -L. -Wl,-Bsymbolic-functions -Wl,-z,relro -L/build/ruby2.1-pKVrxO/ruby2.1-2.1.8/debian/lib -fstack-protector -rdynamic -Wl,-export-dynamic     -lruby-2.1  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:13:15: warning: implicit declaration of function ‘rb_thread_call_without_gvl’ [-Wimplicit-function-declaration]
+ int t(void) { rb_thread_call_without_gvl(); return 0; }
+               ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { rb_thread_call_without_gvl(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for sys/select.h... -------------------- yes
+
+"gcc -E -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/select.h>
+/* end */
+
+--------------------
+
+have_header: checking for poll.h... -------------------- yes
+
+"gcc -E -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <poll.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/epoll.h... -------------------- yes
+
+"gcc -E -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/epoll.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/event.h... -------------------- no
+
+"gcc -E -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC  conftest.c -o conftest.i"
+conftest.c:3:23: fatal error: sys/event.h: そのようなファイルやディレクトリはありません
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/event.h>
+/* end */
+
+--------------------
+
+have_header: checking for port.h... -------------------- no
+
+"gcc -E -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC  conftest.c -o conftest.i"
+conftest.c:3:18: fatal error: port.h: そのようなファイルやディレクトリはありません
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <port.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/resource.h... -------------------- yes
+
+"gcc -E -I/usr/include/x86_64-linux-gnu/ruby-2.1.0 -I/usr/include/ruby-2.1.0/ruby/backward -I/usr/include/ruby-2.1.0 -I. -D_FORTIFY_SOURCE=2   -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/resource.h>
+/* end */
+
+--------------------
+

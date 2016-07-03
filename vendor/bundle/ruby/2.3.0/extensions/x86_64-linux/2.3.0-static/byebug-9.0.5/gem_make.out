@@ -1,0 +1,19 @@
+current directory: /home/painomi/git/rails5test/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+/home/painomi/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20160703-22168-1la8t78.rb extconf.rb
+creating Makefile
+
+current directory: /home/painomi/git/rails5test/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/painomi/git/rails5test/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+make "DESTDIR="
+compiling locker.c
+compiling breakpoint.c
+compiling threads.c
+compiling byebug.c
+compiling context.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/painomi/git/rails5test/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20160703-22168-1frxfm9/byebug
