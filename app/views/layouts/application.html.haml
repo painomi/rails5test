@@ -7,4 +7,20 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %header
+      %div.container
+        %div.navbar-header
+          %a.navbar-brand{href:'#'} Chit Board
+        %ul.nav.navbar-nav.navbar-right
+          %li.dropdown
+            %a.dropdown-toggle{href:'#', 'data-toggle':'dropdown', role:'button', 'aria-haspopup':"true", 'aria-expanded':"false"}
+              Dropdown
+              %span.caret
+            %ul.dropdown-menu
+              %li{href: '#'}
+                %a Help
+              %li{href: '#'}
+                %a About me
+    %main
+      %div.container
+        = yield

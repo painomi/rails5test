@@ -1,9 +1,11 @@
-%div.board
-  %div{id: 'chits'}
-    = render @chits
-
-%div.chat
-  %div{id: 'messages'}
-    = render @messages
-  %form
-    %input{type: 'text', 'data-behavior':'board_speaker'}
+%div.row
+  %div.home.col-md-3
+    %div= 'HOME'
+  %div.board.col-md-6
+    %div{id: 'chits'}
+      = render @chits
+  %div.chat.col-md-3
+    %div{id: 'messages'}
+      = render @messages
+    %form
+      %input{type: 'text', 'data-behavior':'board_speaker'}
